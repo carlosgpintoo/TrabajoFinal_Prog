@@ -1,10 +1,10 @@
 precios = {
-    'habitacion_individual': 7,
-    'habitacion_pareja': 10,
-    'habitacion_familia': 24,
-    'comida': 2,
-    'paseo': 10,
-    'mascota': 8
+    'habitacion_individual': 100,
+    'habitacion_pareja': 170,
+    'habitacion_familia': 260,
+    'comida': 30,
+    'paseo': 90,
+    'mascota': 60
 }
 
 def calcular_costos(tipo_habitacion, comida, paseo, cantidad_mascotas):
