@@ -19,10 +19,9 @@ precios_venta = {
     "mascota": 60
 }
 
-
-RECARGO_HAB = 20
-RECARGO_COMIDA = 5     #Costo para hotel si no hay servicio disponible
-RECARGO_PASEO = 10
+RECARGO_HAB = 20       
+RECARGO_COMIDA = 5     
+RECARGO_PASEO = 10     
 
 
 def autenticar():
@@ -61,7 +60,7 @@ def mostrar_reportes(clientes, ventas, costos, ganancia,
 
     print("\nDisponibilidad de servicios:")
     print(f"  Comidas disponibles : {alimentacion_disponible}")
-    print(f"  Paseos disponibles :       {paseos_disponibles}")
+    print(f"  Paseos disponibles : {paseos_disponibles}")
 
     print("\nResumen ganancias:")
     print(f"  Ventas totales: {ventas}")
@@ -151,7 +150,7 @@ def registrar_cliente(clientes, tipos_habitacion, mascotas,
 
     clientes.append(nombre)
 
-    print("\n Cliente registrado exitosamente")
+    print("\nCliente registrado exitosamente")
     print(f"  Venta al cliente: {venta_cliente}")
     print(f"  Costo para el hotel: {costo_hotel}")
     print(f"  Ganancia acumulada: {ganancia}\n")
@@ -162,17 +161,16 @@ def registrar_cliente(clientes, tipos_habitacion, mascotas,
 
 
 def exportar_a_csv(clientes):
-    archivo = open("clientes.csv", "w", newline="")
-
+    archivo = open("clientes.csv", "w", newline="") 
     escritor = csv.writer(archivo)
-
-    escritor.writerow(["Nombre del Cliente"])
-
-    for cliente in clientes:
-        escritor.writerow([cliente])
-
-    archivo.close()
+    escritor.writerow(["Nombre del Cliente"])  
+    
+    for cliente in clientes:  
+        escritor.writerow([cliente])  
+    
+    archivo.close()  
     print("Clientes exportados a clientes.csv")
+
 
 def modulo_administrador():
     clientes_local = []
@@ -190,7 +188,8 @@ def modulo_administrador():
             print("**** MÓDULO ADMINISTRADOR ****")
             print("1. Ver reportes")
             print("2. Registrar un cliente")
-            print("3. Salir")
+            print("3. Exportar clientes a CSV")
+            print("4. Salir")
             op = input("Opción: ")
 
             if op == "1":
@@ -216,6 +215,9 @@ def modulo_administrador():
                 )
 
             elif op == "3":
+                exportar_a_csv(clientes_local)
+
+            elif op == "4":
                 print("Saliendo del módulo administrador.\n")
                 break
 
